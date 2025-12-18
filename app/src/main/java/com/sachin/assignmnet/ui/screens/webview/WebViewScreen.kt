@@ -51,15 +51,14 @@ fun WebViewScreen(
         topBar = {
             CenterAlignedTopAppBar(
                 title = { 
-                    // URL Pill
                     Surface(
                         shape = RoundedCornerShape(50),
                         color = Color.White,
                         modifier = Modifier
                             .fillMaxWidth()
-                            .padding(end = 16.dp) // adjustments for layout
+                            .padding(end = 16.dp)
                             .height(36.dp),
-                        onClick = {} // non-interactive or readonly? Assignment says "Displays... URL"
+                        onClick = {}
                     ) {
                         Box(contentAlignment = Alignment.CenterStart, modifier = Modifier.padding(horizontal = 16.dp)) {
                             Text(
@@ -103,8 +102,6 @@ fun WebViewScreen(
                     }
                 },
                 update = { webView ->
-                   // preserve state if needed, but for simple task, factory is enough once.
-                   // Actually, update is called on recomposition.
                 },
                 modifier = Modifier.fillMaxSize()
             )

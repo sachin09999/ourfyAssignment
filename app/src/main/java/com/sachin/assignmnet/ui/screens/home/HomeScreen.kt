@@ -95,7 +95,6 @@ fun HomeScreen(
                     ) 
                 },
                 navigationIcon = {
-                     // No navigation icon in the design, but let's keep it empty or maybe the design has a menu on the right
                 },
                 actions = {
                     IconButton(onClick = { viewModel.onHistoryClick() }) {
@@ -116,13 +115,10 @@ fun HomeScreen(
             verticalArrangement = Arrangement.Top,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            // Carousel
             ImageCarousel()
 
             Spacer(modifier = Modifier.height(32.dp))
 
-            // URL Input
-            // URL Input
             OutlinedTextField(
                 value = url,
                 onValueChange = { viewModel.onUrlChange(it) },
@@ -142,8 +138,6 @@ fun HomeScreen(
 
             Spacer(modifier = Modifier.height(16.dp))
 
-            // Open Button
-            // Open Button
             Button(
                 onClick = { viewModel.onOpenClick() },
                 modifier = Modifier
@@ -194,7 +188,6 @@ fun ImageCarousel() {
 
         Spacer(modifier = Modifier.height(8.dp))
 
-        // Dots Indicator
         Row(
             modifier = Modifier
                 .wrapContentHeight()

@@ -75,7 +75,7 @@ fun HistoryScreen(
                     Text(
                         "History",
                         color = Color.White,
-                        modifier = Modifier.fillMaxWidth(), // Hack to center if not using CenterAligned, but CenterAligned is better.
+                        modifier = Modifier.fillMaxWidth(),
                         textAlign = androidx.compose.ui.text.style.TextAlign.Center
                     ) 
                 },
@@ -85,11 +85,9 @@ fun HistoryScreen(
                     }
                 },
                 actions = {
-                    // Delete Button
                     IconButton(onClick = { viewModel.clearHistory() }) {
                         Icon(Icons.Default.Delete, contentDescription = "Clear History", tint = Color.White)
                     }
-                    // Upload Button
                     IconButton(onClick = { viewModel.uploadHistory() }) {
                          if (uploadState is UploadState.Loading) {
                             CircularProgressIndicator(
@@ -137,11 +135,8 @@ fun HistoryScreen(
 @Composable
 fun HistoryItem(url: String, timestamp: Long) {
     val date = Date(timestamp)
-    // Format: "11:45 am, 22 Dec 25"
-    val formatter = SimpleDateFormat("bb:mm a, dd MMM yy", Locale.getDefault()) 
-    // 'bb' is not standard. 'hh' is 12 hour.
-    val correctFormatter = SimpleDateFormat("hh:mm a, dd MMM yy", Locale.getDefault())
-    val formattedDate = correctFormatter.format(date)
+    val checkFormatter = SimpleDateFormat("hh:mm a, dd MMM yy", Locale.getDefault())
+    val formattedDate = checkFormatter.format(date)
 
     Card(
         elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
